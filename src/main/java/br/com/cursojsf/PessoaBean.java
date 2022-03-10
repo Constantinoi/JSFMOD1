@@ -6,6 +6,20 @@ import javax.faces.bean.ManagedBean;
 public class PessoaBean {
 	private String nome;
 	private String sobrenome;
+	private String nomeCompleto;
+
+	public String mostrarNome() {
+		this.nomeCompleto = this.nome + " " + this.sobrenome;
+		return "";
+	}
+
+	public String getNomeCompleto() {
+		return nomeCompleto;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
 
 	public String getNome() {
 		return nome;
