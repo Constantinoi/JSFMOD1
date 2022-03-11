@@ -13,6 +13,10 @@ public class PessoaBean {
 		return "";
 	}
 
+	public String redireciona() {
+			return "paginanavegada";
+	}
+
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
