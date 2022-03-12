@@ -14,7 +14,7 @@ public class PessoaBean {
 	}
 
 	public String redireciona() {
-			return "paginanavegada";
+		return "paginanavegada?faces-redirect=true";
 	}
 
 	public String getNomeCompleto() {
