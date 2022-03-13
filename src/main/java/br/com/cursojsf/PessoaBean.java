@@ -4,8 +4,11 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "pessoaBean")
 public class PessoaBean {
+
 	private String nome;
 	private String sobrenome;
+	private String senha;
+	private String texto;
 	private String nomeCompleto;
 
 	public String mostrarNome() {
@@ -39,6 +42,22 @@ public class PessoaBean {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 }

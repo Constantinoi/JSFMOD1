@@ -14,7 +14,14 @@
 		<h:outputLabel value="Sobrenome" for="sobrenome" />
 		<h:inputText id="sobrenome" value="#{pessoaBean.sobrenome}" />
 		<br/>
-		<h:outputText value="#{pessoaBean.nomeCompleto}" />
+		<h:outputLabel value="Senha" for="senha" />
+		<h:inputSecret id="senha" value="#{pessoaBean.senha}" /><!--senha  -->
+		<br/>
+		<h:outputLabel value="Texto:" for="texto" /> 
+		<h:inputTextarea id="texto" value="#{pessoaBean.texto}" /><!--inserir texto  -->
+		
+		<br/>
+		<h:outputText value="#{pessoaBean.nomeCompleto}" /><!--mostrar  -->
 		<br/>
 		<h:commandButton value="Salvar" action="#{pessoaBean.mostrarNome}"/>
 		<h:commandButton value="Constantino clique aqui" action="#{pessoaBean.redireciona}"/>
