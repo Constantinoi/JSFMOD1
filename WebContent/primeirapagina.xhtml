@@ -26,6 +26,26 @@
 		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
 		<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
 
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p">
+			<h:column>
+				<h:outputText value="#{p.id}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{p.nome}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{p.sobrenome}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{p.idade}" />
+			</h:column>
+			<h:column>
+				<h:commandLink value="Editar">
+					<f:setPropertyActionListener value="#{p}" target="#{pessoaBean.pessoa}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+
 	</h:form>
 
 </h:body>
