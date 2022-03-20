@@ -18,6 +18,12 @@ public class PessoaBean {
 		return "";
 	}
 
+	public String remove() {
+		daoGeneric.removePorId(pessoa);
+		pessoa = new Pessoa();
+		return "";
+	}
+
 	public String novo() {
 //		daoGeneric.salvar(pessoa);
 		pessoa = new Pessoa();
