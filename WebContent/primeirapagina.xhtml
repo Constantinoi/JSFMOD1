@@ -9,6 +9,9 @@
 <h:body>
 	<h1>Formulario de Cadastro</h1>
 	<h:form id="formCadastro">
+		<h:outputLabel for="id" value="ID: " />
+		<h:outputText id="id" value="#{pessoaBean.pessoa.id}" />
+		<br />
 		<h:outputLabel for="nome" value="Nome: " />
 		<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" />
 		<br />
@@ -19,6 +22,7 @@
 		<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
 		<br />
 
+		<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
 		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
 
 	</h:form>
