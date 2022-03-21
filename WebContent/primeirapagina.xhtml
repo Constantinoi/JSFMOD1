@@ -7,11 +7,15 @@
 	<title>Primeira Pagina</title>
 </h:head>
 <h:body>
-	<h1>Formulario de Cadastro</h1>
+
 	<h:form id="formCadastro">
+		<h1>Formulario de Cadastro</h1>
+		<h:graphicImage library="img" name="logotipo.png" width="40"
+			height="40" />
+
 		<h:panelGrid columns="2">
 			<f:facet name="header">
-				<h:outputText value="Cadastro" />
+				<h:outputText value="Cadastro" />;
 			</f:facet>
 			<h:outputLabel for="id" value="ID: " />
 			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" readonly="true" />
@@ -28,31 +32,38 @@
 				<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
 			</h:panelGroup>
 		</h:panelGrid>
-		<h:dataTable value="#{pessoaBean.pessoas}" var="p">
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="2"
+			cellpadding="4">
+			<f:facet name="header">Lista de Pessoas Cadastradas</f:facet>
 			<h:column>
+				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{p.id}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">NOME</f:facet>
 				<h:outputText value="#{p.nome}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">SOBRENOME</f:facet>
 				<h:outputText value="#{p.sobrenome}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">IDADE</f:facet>
 				<h:outputText value="#{p.idade}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">Ação</f:facet>
 				<h:commandLink value="Editar">
 					<f:setPropertyActionListener value="#{p}"
 						target="#{pessoaBean.pessoa}" />
 				</h:commandLink>
-			</h:column>
-			<h:column>
+				<h:outputLabel value=" " />
 				<h:commandLink value="Excluir" action="#{pessoaBean.remove}">
 					<f:setPropertyActionListener value="#{p}"
 						target="#{pessoaBean.pessoa}" />
 				</h:commandLink>
 			</h:column>
+
 		</h:dataTable>
 
 	</h:form>
