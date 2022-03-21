@@ -9,23 +9,25 @@
 <h:body>
 	<h1>Formulario de Cadastro</h1>
 	<h:form id="formCadastro">
-		<h:outputLabel for="id" value="ID: " />
-		<h:outputText id="id" value="#{pessoaBean.pessoa.id}" />
-		<br />
-		<h:outputLabel for="nome" value="Nome: " />
-		<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" />
-		<br />
-		<h:outputLabel for="sobrenome" value="Sobrenome: " />
-		<h:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" />
-		<br />
-		<h:outputLabel for="idade" value="Idade: " />
-		<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
-		<br />
-
-		<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
-		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
-		<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
-
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Cadastro" />
+			</f:facet>
+			<h:outputLabel for="id" value="ID: " />
+			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" readonly="true" />
+			<h:outputLabel for="nome" value="Nome: " />
+			<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" />
+			<h:outputLabel for="sobrenome" value="Sobrenome: " />
+			<h:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" />
+			<h:outputLabel for="idade" value="Idade: " />
+			<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
+				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
+				<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
+			</h:panelGroup>
+		</h:panelGrid>
 		<h:dataTable value="#{pessoaBean.pessoas}" var="p">
 			<h:column>
 				<h:outputText value="#{p.id}" />
@@ -41,12 +43,14 @@
 			</h:column>
 			<h:column>
 				<h:commandLink value="Editar">
-					<f:setPropertyActionListener value="#{p}" target="#{pessoaBean.pessoa}" />
+					<f:setPropertyActionListener value="#{p}"
+						target="#{pessoaBean.pessoa}" />
 				</h:commandLink>
 			</h:column>
 			<h:column>
 				<h:commandLink value="Excluir" action="#{pessoaBean.remove}">
-					<f:setPropertyActionListener value="#{p}" target="#{pessoaBean.pessoa}" />
+					<f:setPropertyActionListener value="#{p}"
+						target="#{pessoaBean.pessoa}" />
 				</h:commandLink>
 			</h:column>
 		</h:dataTable>
