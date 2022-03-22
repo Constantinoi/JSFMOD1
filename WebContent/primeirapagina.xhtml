@@ -25,6 +25,15 @@
 			<h:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" />
 			<h:outputLabel for="idade" value="Idade: " />
 			<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
+			<h:outputLabel value="Sexo:" />
+			<h:selectOneMenu id="sexo" value="#{pessoaBean.pessoa.sexo}"
+				required="true">
+				<f:selectItem itemValue="" itemLabel="[-Selecione-]"
+					noSelectionOption="true" />
+				<f:selectItem itemValue="M" itemLabel="Masculino" />
+				<f:selectItem itemValue="F" itemLabel="Femenino" />
+			</h:selectOneMenu>
+
 			<h:outputLabel />
 			<h:panelGroup>
 				<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
