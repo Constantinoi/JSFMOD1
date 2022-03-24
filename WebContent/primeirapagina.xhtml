@@ -27,12 +27,24 @@
 			<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
 			<h:outputLabel value="Sexo:" />
 			<h:selectOneMenu id="sexo" value="#{pessoaBean.pessoa.sexo}"
-				required="true">
+				><!-- O requered esta conflitando com a edicao -->
 				<f:selectItem itemValue="" itemLabel="[-Selecione-]"
 					noSelectionOption="true" />
 				<f:selectItem itemValue="M" itemLabel="Masculino" />
-				<f:selectItem itemValue="F" itemLabel="Femenino" />
+				<f:selectItem itemValue="F" itemLabel="Feminino" />
 			</h:selectOneMenu>
+
+			<h:outputLabel value="Frameworks" />
+
+			<h:selectManyMenu id="frame" value="#{pessoaBean.pessoa.frameworks}"
+				style="height:150px;">
+				<f:selectItem itemValue="HIB" itemLabel="Hibernate" />
+				<f:selectItem itemValue="SPR" itemLabel="Spring MVC" />
+				<f:selectItem itemValue="JPA" itemLabel="Jpa" />
+				<f:selectItem itemValue="PRI" itemLabel="Primefaces" />
+				<f:selectItem itemValue="JSF" itemLabel="Jsf" />
+
+			</h:selectManyMenu>
 
 			<h:outputLabel />
 			<h:panelGroup>
