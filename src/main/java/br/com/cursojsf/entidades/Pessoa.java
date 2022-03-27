@@ -29,8 +29,18 @@ public class Pessoa implements Serializable {
 
 	private String[] frameworks;
 
+	private Boolean ativo;
+
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 
 	public String[] getFrameworks() {
 		return frameworks;
