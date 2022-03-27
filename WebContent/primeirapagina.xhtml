@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Primeira Pagina</title>
+	<title>Cadastro de Usuario</title>
 </h:head>
 <h:body>
 
@@ -15,7 +15,7 @@
 
 		<h:panelGrid columns="2">
 			<f:facet name="header">
-				<h:outputText value="Cadastro" />;
+				<h:outputText value="Cadastro de Usuario" />
 			</f:facet>
 			<h:outputLabel for="id" value="ID: " />
 			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" readonly="true" />
@@ -25,6 +25,7 @@
 			<h:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" />
 			<h:outputLabel for="idade" value="Idade: " />
 			<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
+
 			<h:outputLabel value="Sexo:" />
 			<h:selectOneMenu id="sexo" value="#{pessoaBean.pessoa.sexo}">
 				<!-- O requered esta conflitando com a edicao -->
@@ -36,8 +37,6 @@
 
 			<h:outputLabel value="Ativo" />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
-
-
 
 			<h:outputLabel value="Frameworks" />
 
@@ -51,20 +50,38 @@
 
 			</h:selectManyMenu>
 
+			<h:outputLabel value="Login:" />
+			<h:inputText value="#{pessoaBean.pessoa.login}" />
+
+			<h:outputLabel value="Senha:" />
+			<h:inputSecret value="#{pessoaBean.pessoa.senha}" />
+
+			<h:outputLabel value="Perfil:" />
+			<h:selectOneMenu id="perfil" value="#{pessoaBean.pessoa.perfilUser}">
+				<f:selectItem itemValue="" itemLabel="[-Selecione-]"
+					noSelectionOption="true" />
+				<f:selectItem itemValue="Administrador" itemLabel="Administrador" />
+				<f:selectItem itemValue="Sercretario" itemLabel="Secretario" />
+			</h:selectOneMenu>
+
 			<h:outputLabel />
 			<h:panelGroup>
+
 				<h:commandButton value="Novo" action="#{pessoaBean.novo}"
-					title="novo" image="/resources/img/new.png" />
+					title="novo" image="/resources/img/novo.png"
+					style="width:20px;height:20px;" />
 				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
-					title="salvar" image="/resources/img/salvar.png" />
+					title="salvar" image="/resources/img/salvar.png"
+					style="width:20px;height:20px;" />
 				<h:commandButton value="Remover" action="#{pessoaBean.remove}"
-					title="remover" image="/resources/img/remover.png" />
+					style="width:20px;height:20px;" title="remover"
+					image="/resources/img/remover.png" />
 				<h:commandButton value="Limpar" type="reset" />
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="3"
 			cellpadding="6" style="width:auto">
-			<f:facet name="header">Lista de Pessoas Cadastradas</f:facet>
+			<f:facet name="header">Lista de Usuarios Cadastrados</f:facet>
 			<h:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{p.id}" />
@@ -87,7 +104,7 @@
 					<f:setPropertyActionListener value="#{p}"
 						target="#{pessoaBean.pessoa}" />
 					<h:graphicImage value="/resources/img/editar.png"
-						style="width:20px;height:20px" />
+						style="width:20px;height:20px;" />
 				</h:commandLink>
 			</h:column>
 			<h:column>
