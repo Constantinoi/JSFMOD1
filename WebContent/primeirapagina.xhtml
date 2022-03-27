@@ -37,7 +37,7 @@
 			<h:outputLabel value="Ativo" />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
 
-			
+
 
 			<h:outputLabel value="Frameworks" />
 
@@ -53,14 +53,17 @@
 
 			<h:outputLabel />
 			<h:panelGroup>
-				<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
-				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
-				<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
+				<h:commandButton value="Novo" action="#{pessoaBean.novo}"
+					title="novo" image="/resources/img/new.png" />
+				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
+					title="salvar" image="/resources/img/salvar.png" />
+				<h:commandButton value="Remover" action="#{pessoaBean.remove}"
+					title="remover" image="/resources/img/remover.png" />
 				<h:commandButton value="Limpar" type="reset" />
 			</h:panelGroup>
 		</h:panelGrid>
-		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="2"
-			cellpadding="4">
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="3"
+			cellpadding="6" style="width:auto">
 			<f:facet name="header">Lista de Pessoas Cadastradas</f:facet>
 			<h:column>
 				<f:facet name="header">ID</f:facet>
@@ -79,18 +82,23 @@
 				<h:outputText value="#{p.idade}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Ação</f:facet>
-				<h:commandLink value="Editar">
+				<f:facet name="header">Editar</f:facet>
+				<h:commandLink title="Editar">
 					<f:setPropertyActionListener value="#{p}"
 						target="#{pessoaBean.pessoa}" />
-				</h:commandLink>
-				<h:outputLabel value=" " />
-				<h:commandLink value="Excluir" action="#{pessoaBean.remove}">
-					<f:setPropertyActionListener value="#{p}"
-						target="#{pessoaBean.pessoa}" />
+					<h:graphicImage value="/resources/img/editar.png"
+						style="width:20px;height:20px" />
 				</h:commandLink>
 			</h:column>
-
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink title="Excluir" action="#{pessoaBean.remove}">
+					<f:setPropertyActionListener value="#{p}"
+						target="#{pessoaBean.pessoa}" />
+					<h:graphicImage value="/resources/img/remover.png"
+						style="width:20px;height:20px" />
+				</h:commandLink>
+			</h:column>
 		</h:dataTable>
 
 	</h:form>
