@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import br.com.cursojsf.entidades.Pessoa;
 import br.com.cursojsf.jpautil.JPAUtil;
 
 @WebFilter(urlPatterns = { "/*" })
@@ -30,8 +31,7 @@ public class FilterAutenticacao implements Filter {
 
 		String url = req.getServletPath();
 
-		if (!url.equalsIgnoreCase("login.xhtml") && usuarioLogado == null
-				|| (usuarioLogado != null && usuarioLogado.trim().isEmpty())) {
+		if (!url.equalsIgnoreCase("login.xhtml") && usuarioLogado == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.xhtml");
 			dispatcher.forward(request, response);
 			return;
