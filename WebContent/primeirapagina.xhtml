@@ -107,7 +107,7 @@
 						style="width:20px;height:20px;" />
 				</h:commandLink>
 			</h:column>
-			<h:column>
+			<h:column rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 				<f:facet name="header">Excluir</f:facet>
 				<h:commandLink title="Excluir" action="#{pessoaBean.remove}">
 					<f:setPropertyActionListener value="#{p}"
