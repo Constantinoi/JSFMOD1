@@ -7,8 +7,16 @@
 	<title>Cadastro de Usuario</title>
 </h:head>
 <h:body>
+	<h:form>
+		<h:commandLink value="Administracao" action="lancamento"
+			style="margin-left:1cm" />
+		<h:commandLink value="Lançamentos" action="primeirapagina"
+			style="margin-left:1cm" />
+		<h:commandLink value="Trocar Usuario" action="login"
+			style="margin-left:1cm" />
+	</h:form>
 
-	<h:form id="formCadastro">
+	<h:form id="formCadastro" rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 		<h1>Formulario de Cadastro</h1>
 		<h:graphicImage library="img" name="logotipo.png" width="40"
 			height="40" />
