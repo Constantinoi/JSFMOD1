@@ -8,9 +8,9 @@
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink value="Administracao" action="lancamento"
+		<h:commandLink value="Administracao" action="primeirapagina"
 			style="margin-left:1cm" />
-		<h:commandLink value="Lançamentos" action="primeirapagina"
+		<h:commandLink value="Lançamentos" action="lancamento"
 			style="margin-left:1cm" />
 		<h:commandLink value="Trocar Usuario" action="login"
 			style="margin-left:1cm" />
@@ -26,7 +26,7 @@
 				<h:outputText value="Cadastro de Usuario" />
 			</f:facet>
 			<h:outputLabel for="id" value="ID: " />
-			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" readonly="true" />
+			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" disabled="true" />
 			<h:outputLabel for="nome" value="Nome: " />
 			<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" />
 			<h:outputLabel for="sobrenome" value="Sobrenome: " />

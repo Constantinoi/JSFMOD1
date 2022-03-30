@@ -8,8 +8,48 @@
 
 </h:head>
 <h:body>
+	<h:form>
+		<h:commandLink value="Administracao" action="primeirapagina"
+			style="margin-left:1cm" />
+		<h:commandLink value="Lançamentos" action="lancamento"
+			style="margin-left:1cm" />
+		<h:commandLink value="Trocar Usuario" action="login"
+			style="margin-left:1cm" />
+	</h:form>
+	<h:form id="formLancamento" style="margin-top:22%;margin-left:40%">
 
-	<h:form id="formLancamento">
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputLabel value="Lançamentos" />
+			</f:facet>
+			<h:outputLabel value="ID: " />
+			<h:inputText disabled="true" value="#{lancamentoBean.lancamento.id}" />
+
+			<h:outputLabel value="Nota: " />
+			<h:inputText value="#{lancamentoBean.lancamento.numeroNotaFiscal}" />
+
+			<h:outputLabel value="Origem: " />
+			<h:inputText value="#{lancamentoBean.lancamento.empresaOrigem}" />
+
+			<h:outputLabel value="Destino: " />
+			<h:inputText value="#{lancamentoBean.lancamento.empresaDestino}" />
+
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Novo" action="#{lancamentoBean.novo}"
+					title="novo" image="/resources/img/novo.png"
+					style="width:20px;height:20px;" />
+				<h:commandButton value="Salvar" action="#{lancamentoBean.salvar}"
+					title="salvar" image="/resources/img/salvar.png"
+					style="width:20px;height:20px;" />
+				<h:commandButton value="Remover" action="#{lancamentoBean.remove}"
+					style="width:20px;height:20px;" title="remover"
+					image="/resources/img/remover.png" />
+				<h:commandButton value="Limpar" type="reset" />
+			</h:panelGroup>
+
+		</h:panelGrid>
+
 
 	</h:form>
 
