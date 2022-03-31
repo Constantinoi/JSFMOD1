@@ -42,6 +42,14 @@
 				<f:selectItem itemValue="M" itemLabel="Masculino" />
 				<f:selectItem itemValue="F" itemLabel="Feminino" />
 			</h:selectOneMenu>
+			
+			<h:outputLabel value="Nivel:" />
+			<h:selectOneRadio value="#{pessoaBean.pessoa.nivel}">
+				<f:selectItem itemValue="J" itemLabel="Junior" />
+				<f:selectItem itemValue="P" itemLabel="Pleno" />
+				<f:selectItem itemValue="S" itemLabel="Senior" />
+				<f:selectItem itemValue="E" itemLabel="Especialista" />
+			</h:selectOneRadio>
 
 			<h:outputLabel value="Ativo" />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
