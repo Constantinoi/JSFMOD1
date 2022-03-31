@@ -10,7 +10,8 @@
 <h:body>
 	<h:form>
 		<h:commandLink value="Administracao" action="primeirapagina"
-			style="margin-left:1cm" />
+			style="margin-left:1cm"
+			rendered="#{pessoaBean.permiteAcesso('Administrador')}" />
 		<h:commandLink value="Lançamentos" action="lancamento"
 			style="margin-left:1cm" />
 		<h:commandLink value="Trocar Usuario" action="login"
@@ -42,7 +43,7 @@
 				<h:commandButton value="Salvar" action="#{lancamentoBean.salvar}"
 					title="salvar" image="/resources/img/salvar.png"
 					style="width:20px;height:20px;" />
-				<h:commandButton value="Remover" action="#{lancamentoBean.remover}"
+				<h:commandButton rendered="#{pessoaBean.permiteAcesso('Administrador')}" value="Remover" action="#{lancamentoBean.remover}"
 					style="width:20px;height:20px;" title="remover"
 					image="/resources/img/remover.png" />
 				<h:commandButton value="Limpar" type="reset" />
@@ -82,7 +83,7 @@
 						target="#{lancamentoBean.lancamento}"></f:setPropertyActionListener>
 				</h:commandLink>
 			</h:column>
-			<h:column>
+			<h:column rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 				<f:facet name="header">Excluir</f:facet>
 				<h:commandLink action="#{lancamentoBean.remover}" title="excluir">
 					<h:graphicImage value="/resources/img/remover.png"
