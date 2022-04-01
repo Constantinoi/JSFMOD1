@@ -9,14 +9,16 @@
 <h:body>
 	<h:form>
 		<h:commandLink value="Administracao" action="primeirapagina"
-			style="margin-left:1cm" rendered="#{pessoaBean.permiteAcesso('Administrador')}" />
+			style="margin-left:1cm"
+			rendered="#{pessoaBean.permiteAcesso('Administrador')}" />
 		<h:commandLink value="Lançamentos" action="lancamento"
 			style="margin-left:1cm" />
 		<h:commandLink value="Trocar Usuario" action="login"
 			style="margin-left:1cm" />
 	</h:form>
 
-	<h:form id="formCadastro" rendered="#{pessoaBean.permiteAcesso('Administrador')}">
+	<h:form id="formCadastro"
+		rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 		<h1>Formulario de Cadastro</h1>
 		<h:graphicImage library="img" name="logotipo.png" width="40"
 			height="40" />
@@ -42,7 +44,7 @@
 				<f:selectItem itemValue="M" itemLabel="Masculino" />
 				<f:selectItem itemValue="F" itemLabel="Feminino" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Nivel:" />
 			<h:selectOneRadio value="#{pessoaBean.pessoa.nivel}">
 				<f:selectItem itemValue="J" itemLabel="Junior" />
@@ -50,6 +52,15 @@
 				<f:selectItem itemValue="S" itemLabel="Senior" />
 				<f:selectItem itemValue="E" itemLabel="Especialista" />
 			</h:selectOneRadio>
+
+			<h:outputLabel value="Linguagems:" />
+			<h:selectManyCheckbox value="#{pessoaBean.pessoa.linguagens}">
+				<f:selectItem itemValue="1" itemLabel="Java" />
+				<f:selectItem itemValue="2" itemLabel="Php" />
+				<f:selectItem itemValue="3" itemLabel="Python" />
+				<f:selectItem itemValue="4" itemLabel="C#" />
+				<f:selectItem itemValue="5" itemLabel="Cobol" />
+			</h:selectManyCheckbox>
 
 			<h:outputLabel value="Ativo" />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />

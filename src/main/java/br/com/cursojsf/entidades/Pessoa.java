@@ -2,6 +2,7 @@ package br.com.cursojsf.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,8 +40,18 @@ public class Pessoa implements Serializable {
 
 	private String perfilUser;
 
+	private Integer[] linguagens;
+
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
+
+	public Integer[] getLinguagens() {
+		return linguagens;
+	}
+
+	public void setLinguagens(Integer[] linguagens) {
+		this.linguagens = linguagens;
+	}
 
 	public String getNivel() {
 		return nivel;
