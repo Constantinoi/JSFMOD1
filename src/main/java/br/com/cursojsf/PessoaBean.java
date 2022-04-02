@@ -54,7 +54,12 @@ public class PessoaBean {
 	}
 
 	public String novo() {
-//		daoGeneric.salvar(pessoa);
+//		regra de negocio do novo
+		pessoa = new Pessoa();
+		return "";
+	}
+	public String limpar() {
+//		regra de negocio no Limpar
 		pessoa = new Pessoa();
 		return "";
 	}
