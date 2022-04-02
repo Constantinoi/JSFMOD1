@@ -33,13 +33,18 @@
 			<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" />
 
 			<h:outputLabel value="Sexo:" />
-			<h:selectOneMenu id="sexo" value="#{pessoaBean.pessoa.sexo}">
+			<h:selectOneMenu id="sexo" value="#{pessoaBean.pessoa.sexo}" converterMessage="Data Nascimento incorreta">
 				<!-- O requered esta conflitando com a edicao -->
 				<f:selectItem itemValue="" itemLabel="[-Selecione-]"
 					noSelectionOption="true" />
 				<f:selectItem itemValue="M" itemLabel="Masculino" />
 				<f:selectItem itemValue="F" itemLabel="Feminino" />
 			</h:selectOneMenu>
+
+			<h:outputLabel value="Data Nascimento:" />
+			<h:inputText value="#{pessoaBean.pessoa.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
+			</h:inputText>
 
 			<h:outputLabel value="Nivel:" />
 			<h:selectOneRadio value="#{pessoaBean.pessoa.nivel}">
