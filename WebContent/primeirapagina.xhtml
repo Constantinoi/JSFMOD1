@@ -51,6 +51,31 @@
 				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
 			</h:inputText>
 
+			<h:outputLabel value="CEP: " />
+			<h:inputText value="#{pessoaBean.pessoa.cep}">
+				<f:ajax event="blur" execute="@this" 
+					listener="#{pessoaBean.pesquisaCep}" render="logra comp bairro local uf"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Logradouro:" />
+			<h:inputText value="#{pessoaBean.pessoa.logradouro}" disabled="true" id="logra"/>
+			
+			<h:outputLabel value="Numero:" />
+			<h:inputText value="#{pessoaBean.pessoa.nrResidencia}" />
+			
+			<h:outputLabel value="complemento:" />
+			<h:inputText value="#{pessoaBean.pessoa.complemento}" id="comp"/>
+			
+			<h:outputLabel value="bairro:" />
+			<h:inputText value="#{pessoaBean.pessoa.bairro}" disabled="true" id="bairro"/>
+			
+			<h:outputLabel value="localidade:" />
+			<h:inputText value="#{pessoaBean.pessoa.localidade}" disabled="true" id="local"/>
+			
+			<h:outputLabel value="UF:"/>
+			<h:inputText value="#{pessoaBean.pessoa.uf}" disabled="true" id="uf"/>
+			
+
 			<h:outputLabel value="Nivel:" />
 			<h:selectOneRadio value="#{pessoaBean.pessoa.nivel}">
 				<f:selectItem itemValue="J" itemLabel="Junior" />
