@@ -26,7 +26,9 @@
 			<h:outputLabel for="id" value="ID: " />
 			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" disabled="true" />
 			<h:outputLabel for="nome" value="Nome: " />
-			<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" />
+			<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}"  required="true" requiredMessage="Informe o nome do Usuario" validatorMessage="Min 10 letras max 50">
+				<f:validateLength minimum="10" maximum="50"/>
+			</h:inputText>
 			<h:outputLabel for="sobrenome" value="Sobrenome: " />
 			<h:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" />
 			<h:outputLabel for="idade" value="Idade: " />
