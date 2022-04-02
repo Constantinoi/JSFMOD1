@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
@@ -29,7 +30,14 @@ public class PessoaBean {
 	public String salvar() {
 		pessoa = daoGeneric.merge(pessoa);
 		carregarPessoas();
+		mostrarMsg("Cadastrado com sucesso!");
 		return "";
+	}
+
+	private void mostrarMsg(String msg) {
+		FacesContext contexto = FacesContext.getCurrentInstance();
+		FacesMessage message = new FacesMessage(msg);
+		contexto.addMessage(null, message);
 	}
 
 	@PostConstruct
@@ -40,6 +48,7 @@ public class PessoaBean {
 	public String remove() {
 		daoGeneric.removePorId(pessoa);
 		pessoa = new Pessoa();
+		mostrarMsg("Removido com sucesso!");
 		carregarPessoas();
 		return "";
 	}
@@ -92,12 +101,12 @@ public class PessoaBean {
 	public boolean permiteAcesso(String acesso) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = context.getExternalContext();
-		
+
 		HttpServletRequest req = (HttpServletRequest) externalContext.getRequest();
 		HttpSession session = req.getSession();
-		
+
 		Pessoa pessoaUser = (Pessoa) session.getAttribute("usuarioLogado");
-		
+
 		return pessoaUser.getPerfilUser().equals(acesso);
 	}
 
