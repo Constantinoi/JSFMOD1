@@ -8,6 +8,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>br.com.cursojsf.entidades.Pessoa</class>
 		<class>br.com.cursojsf.entidades.Lancamento</class>
+		<class>br.com.cursojsf.entidades.Estados</class>
+		<class>br.com.cursojsf.entidades.Cidades</class>
 
 		<properties>
 			<!-- Dados de conexao com o banco -->
