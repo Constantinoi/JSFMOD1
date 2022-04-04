@@ -19,6 +19,7 @@ import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import com.google.gson.Gson;
 
@@ -44,7 +45,12 @@ public class PessoaBean {
 
 	private List<SelectItem> cidades;
 
+	private Part arquivoFoto;
+
 	public String salvar() {
+		
+		System.out.println(arquivoFoto);
+		
 		pessoa = daoGeneric.merge(pessoa);
 		carregarPessoas();
 		mostrarMsg("Cadastrado com sucesso!");
@@ -70,6 +76,7 @@ public class PessoaBean {
 		return "";
 	}
 
+	@SuppressWarnings("unchecked")
 	public void editar() {
 		if (pessoa.getCidades() != null) {
 			Estados estado = pessoa.getCidades().getEstados();
@@ -230,6 +237,14 @@ public class PessoaBean {
 
 	public void setCidades(List<SelectItem> cidades) {
 		this.cidades = cidades;
+	}
+
+	public Part getArquivoFoto() {
+		return arquivoFoto;
+	}
+
+	public void setArquivoFoto(Part arquivoFoto) {
+		this.arquivoFoto = arquivoFoto;
 	}
 
 }

@@ -10,7 +10,7 @@
 <h:body>
 	<ui:include src="/menu.xhtml" />
 
-	<h:form id="formCadastro"
+	<h:form id="formCadastro" enctype="multipart/form-data"
 		rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 
 		<h:messages infoStyle="color:green" />
@@ -23,6 +23,7 @@
 			<f:facet name="header">
 				<h:outputText value="Cadastro de Usuario" />
 			</f:facet>
+
 			<h:outputLabel for="id" value="ID: " />
 			<h:inputText id="id" value="#{pessoaBean.pessoa.id}" disabled="true" />
 			<h:outputLabel for="nome" value="Nome: " />
