@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -27,6 +28,7 @@ public class Pessoa implements Serializable {
 
 	private String nome;
 
+	@NotEmpty(message = "Sobrenome deve ser informado")
 	private String sobrenome;
 
 	private Integer idade;
@@ -64,60 +66,11 @@ public class Pessoa implements Serializable {
 
 	private String NrResidencia;
 
-	@ManyToOne
-	private Cidades cidades;
-
-	@Transient
-	private Estados estados;
-
-	@Column(columnDefinition = "text")
-	private String fotoIconBase64;/* tipo text grava arquivos em base 64 */
-
-	private String extensao;/* extensao jpg, png */
-
-	@Lob /* Grava arquivos no banco de dados */
-	@Basic(fetch = FetchType.LAZY)
-	private byte[] fotoIconBase64Original;
-
-	public String getFotoIconBase64() {
-		return fotoIconBase64;
-	}
-
-	public void setFotoIconBase64(String fotoIconBase64) {
-		this.fotoIconBase64 = fotoIconBase64;
-	}
-
-	public String getExtensao() {
-		return extensao;
-	}
-
-	public void setExtensao(String extensao) {
-		this.extensao = extensao;
-	}
-
-	public byte[] getFotoIconBase64Original() {
-		return fotoIconBase64Original;
-	}
-
-	public void setFotoIconBase64Original(byte[] fotoIconBase64Original) {
-		this.fotoIconBase64Original = fotoIconBase64Original;
-	}
-
-	public Cidades getCidades() {
-		return cidades;
-	}
-
-	public void setCidades(Cidades cidades) {
-		this.cidades = cidades;
-	}
-
-	public Estados getEstados() {
-		return estados;
-	}
-
-	public void setEstados(Estados estados) {
-		this.estados = estados;
-	}
+//	@ManyToOne
+//	private Cidades cidades;
+//
+//	@Transient
+//	private Estados estados;
 
 	public String getNrResidencia() {
 		return NrResidencia;
